@@ -10,10 +10,35 @@ class ApiTest(unittest.TestCase):
         self.common_core_standard = 'CCSS.ELA-LITERACY.W.4.9'
         self.topic_of_interest = 'baseball'
 
+
     #
-    # These are the real tests for verifying the system.
+    # This is an end-to-end test of the system.
     #
 
+    def test_end_to_end(self):
+        # This generates the rubric, passage, and questions.
+        questions = self.api.generate_questions(self.common_core_standard, self.topic_of_interest)
+        self.assertTrue(questions['Outcome'] == 'Pass')
+        with open('./results/e2e_questions.json', 'w', encoding='utf-8') as file:
+            file.write(json.dumps(questions))
+
+        # This simulates the student answering the questions.
+        answers = self.api.generate_answers(self.common_core_standard, questions['Rubric'], questions['Passage'], questions['Questions'])
+        self.assertTrue(answers['Outcome'] == 'Pass')
+        with open('./results/e2e_answers.json', 'w', encoding='utf-8') as file:
+            file.write(json.dumps(answers))
+
+        # This generates the feedback.
+        feedback = self.api.generate_feedback(self.common_core_standard, questions['Rubric'], questions['Passage'], answers)
+        self.assertTrue(feedback['Outcome'] == 'Pass')
+        with open('./results/e2e_feedback.json', 'w', encoding='utf-8') as file:
+            file.write(json.dumps(feedback))
+    
+    #
+    # These skipped tests verify the system, but just waste API calls now.
+    #
+
+    @unittest.skip
     def test_feedback_qc_good(self):
         ''' This test verifies the feedback for a good set of answers. '''
 
@@ -34,6 +59,7 @@ class ApiTest(unittest.TestCase):
         for feedback in feedback_do['Feedback']:
             self.assertTrue(feedback['Grade'] == 'Meets Standard' or feedback['Grade'] == 'Exceeds Standard')
 
+    @unittest.skip
     def test_feedback_qc_bad(self):
         ''' This test verifies the feedback for a bad set of answers. '''
 
