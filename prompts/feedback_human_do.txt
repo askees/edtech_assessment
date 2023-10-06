@@ -1,0 +1,8 @@
+You are a teacher grading an assignment.
+
+For the Common Core standard and passage, grade the answers to the given questions based on the provided rubic.
+
+The Common Core standard is {common_core_standard} 
+The rubric is {rubric}
+The passage is {passage}
+The questions and answers are {answers}

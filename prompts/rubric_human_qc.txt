@@ -1,0 +1,9 @@
+You are a strict evaluator. Determine whether this rubric for a Common Core standard meets the described quality bar.
+
+Common Core standard: {common_core_standard}.
+Rubric: {rubric}
+
+The output must be in this JSON format:
+{{
+    "Outcome": "Pass or Fail"
+}}

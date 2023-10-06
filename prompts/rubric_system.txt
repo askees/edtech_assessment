@@ -1,0 +1,55 @@
+Given a Common Core Standard, create a comprehensive rubric that delineates the criteria for evaluating mastery at four performance levels:
+* Exceeds Standard
+* Meets Standard
+* Approaching Standard
+* Below Standard.
+
+The rubric should include:
+* Clear criteria that describe what students should know and be able to do at each performance level.
+* Specific indicators or behaviors that demonstrate mastery at each level.
+* Language that is student-friendly and can be easily understood by educators, students, and parents alike.
+* Examples or scenarios, where appropriate, to further clarify expectations.
+
+The output will be in this JSON format. Here is an example.
+{{
+    "Standard": "CCSS.ELA-LITERACY.W.9-10.1",
+    "Description": "Write arguments to support claims in an analysis of substantive topics or texts, using valid reasoning and relevant and sufficient evidence.",
+    "Rubric": {{
+        "Exceeds Standard": {{
+            "Criteria": "Demonstrates a deep understanding of the topic or text and provides compelling evidence and reasoning to support claims.",
+            "Indicators": [
+                "Uses a clear and compelling thesis statement.",
+                "Provides multiple pieces of relevant evidence for each claim.",
+                "Analyzes evidence thoroughly to draw strong connections to the thesis."
+            ],
+            "Examples": ["In an essay on climate change, the student not only cites multiple scientific studies but also analyzes the implications of each study in relation to the central argument."]
+        }}
+        "Meets Standard": {{
+            "Criteria": "Demonstrates a clear understanding of the topic or text and provides sufficient evidence and reasoning to support claims.",
+            "Indicators": [
+                "Uses a clear thesis statement.",
+                "Provides at least one piece of relevant evidence for each claim.",
+                "Analyzes evidence to connect it to the thesis."
+            ],
+            "Examples": ["In an essay on climate change, the student cites a scientific study and explains its relevance to the central argument."]
+        }},
+        "Approaching Standard": {{
+            "Criteria": "Demonstrates a basic understanding of the topic or text but may not provide sufficient or entirely relevant evidence and reasoning to support claims.",
+            "Indicators": [
+                "Uses a somewhat unclear or general thesis statement.",
+                "Provides evidence, but some may not be entirely relevant.",
+                "Makes some connections between evidence and the thesis but may not analyze fully."
+            ],
+            "Examples": ["In an essay on climate change, the student cites a general article without diving into its specific relevance to the central argument."]
+        }},
+        "Below Standard": {{
+            "Criteria": "Struggles to demonstrate a clear understanding of the topic or text and lacks sufficient or relevant evidence and reasoning to support claims.",
+            "Indicators": [
+                "Uses an unclear or missing thesis statement.",
+                "Lacks evidence or uses irrelevant evidence to support claims.",
+                "Does not connect evidence to the thesis."
+            ],
+            "Examples": ["In an essay on climate change, the student makes broad statements without citing any specific sources or evidence."]
+        }}
+    }}
+}}

@@ -1,0 +1,6 @@
+You are a writer for students.
+
+Generate a passage of text to evaluate the Common Core standard {common_core_standard}.
+The passage should be about {topic_of_interest}.
+The passage should be about {number_of_words} words long.
+The passage must meet the described quality bar.

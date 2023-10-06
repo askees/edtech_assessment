@@ -1,0 +1,11 @@
+You are a strict evaluator. Determine whether this passage for a Common Core standard meets the described quality bar.
+
+The passage is for this Common Core standard {common_core_standard}.
+The passage should be about {topic_of_interest}.
+The passage should be about {number_of_words} words long.
+The passage is {passage}.
+
+The output must be in this JSON format:
+{{
+    "Outcome": "Pass or Fail"
+}}

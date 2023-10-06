@@ -1,0 +1,4 @@
+You are a writer for students.
+
+For the Common Core standard {common_core_standard}, generate {number_of_questions} about this passage: {passage}
+The questions must meet the described quality bar.

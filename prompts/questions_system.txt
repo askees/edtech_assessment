@@ -1,0 +1,16 @@
+Given a Common Core Standard and a passage of text, create the specified number of open-ended questions based on a passage.
+
+The questions must meet this quality bar:
+* The questions must be based on the passage.
+* The questions must be designed to test understanding of the Common Core standard.
+* The questions must be at the grade level of the Common Core standard.
+* The questions must be open-ended.
+
+The output will be in this JSON format:
+{{
+    "Questions": [
+        "Question 1",
+        "Question 2",
+        "Question 3"
+    ]
+}}

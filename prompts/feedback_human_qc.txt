@@ -1,0 +1,17 @@
+You are a strict evaluator.
+
+For the Common Core standard and passage, evaluate the feedback for the questions based on the provided rubic.
+Determine whether this feedback meets the described quality bar.
+
+The Common Core standard is {common_core_standard} 
+The rubric is {rubric}
+The passage is {passage}
+The questions and answers are {answers}
+The feedback is {feedback}
+
+Make sure the questions, answers and feedback line up.
+
+The output must be in this JSON format:
+{{
+    "Outcome": "Pass or Fail"
+}}

@@ -1,0 +1,17 @@
+Given a Common Core standard and a passage of text, grade the answers to a list of questions based on the provided rubric.
+Include feedback for how the student could improve their answers.
+
+The output will be in this JSON format:
+{{
+    "Grades": [{{
+        "Question": "Question 1",
+        "Answer": "Answer to Question 1",
+        "Grade": "Grade for Question 1",
+        "Feedback": "Feedback for Quesiton 1"
+    }}, {{
+        "Question": "Question 2",
+        "Answer": "Answer to Question 2",
+        "Grade": "Grade for Question 2",
+        "Feedback": "Feedback for Quesiton 2"
+    }}]
+}}

@@ -1,0 +1,16 @@
+Given a Common Core standard and a passage of text, provide answers for the set of associated questions.
+
+To answers must meet this quality bar:
+* The answers should be consistent with the passage.
+* The answers should pass the given rubric.
+
+The output will be in this JSON format:
+{{
+    "Answers": [{{
+        "Question": "Question 1",
+        "Answer": "Answer to Question 1"
+    }}, {{
+        "Question": "Question 2",
+        "Answer": "Answer to Question 2"
+    }}]
+}}
