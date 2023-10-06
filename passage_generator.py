@@ -1,6 +1,8 @@
 from generator import Generator
 
 class PassageGenerator(Generator):
+    ''' This class generates a passage for a given common core standard and topic of interest. '''
+
     def __init__(self):
         super().__init__()
 

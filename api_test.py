@@ -3,10 +3,62 @@ import unittest
 from api import Api
 
 class ApiTest(unittest.TestCase):
+    ''' This class tests the api.py file. '''
+
     def setUp(self):
         self.api = Api()
         self.common_core_standard = 'CCSS.ELA-LITERACY.W.4.9'
         self.topic_of_interest = 'baseball'
+
+    #
+    # These are the real tests for verifying the system.
+    #
+
+    def test_feedback_qc_good(self):
+        ''' This test verifies the feedback for a good set of answers. '''
+
+        # Read in the rubric, passage, and answers.
+        with open('./results/rubric.json', 'r', encoding='utf-8') as file:
+            rubric = json.loads(file.read())
+        with open('./results/passage.json', 'r', encoding='utf-8') as file:
+            passage = json.loads(file.read())
+        with open('./results/answers_good.json', 'r', encoding='utf-8') as file:
+            answers = json.loads(file.read())
+
+        # Generate the feedback and validate that it meets the quality bar
+        feedback_do = self.api.feedback_do(self.common_core_standard, rubric, passage, answers)
+        feedback_qc = self.api.feedback_qc(self.common_core_standard, rubric, passage, answers, feedback_do)
+        self.assertEqual(feedback_qc['Outcome'], 'Pass')
+
+        # Confirm the feedback correctly identifies the answers as meeting the standard
+        for feedback in feedback_do['Feedback']:
+            self.assertTrue(feedback['Grade'] == 'Meets Standard' or feedback['Grade'] == 'Exceeds Standard')
+
+    def test_feedback_qc_bad(self):
+        ''' This test verifies the feedback for a bad set of answers. '''
+
+        # Read in the rubric, passage, and answers.
+        with open('./results/rubric.json', 'r', encoding='utf-8') as file:
+            rubric = json.loads(file.read())
+        with open('./results/passage.json', 'r', encoding='utf-8') as file:
+            passage = json.loads(file.read())
+        with open('./results/answers_bad.json', 'r', encoding='utf-8') as file:
+            answers = json.loads(file.read())
+
+        # Generate the feedback and validate that it meets the quality bar
+        feedback_do = self.api.feedback_do(self.common_core_standard, rubric, passage, answers)
+        feedback_qc = self.api.feedback_qc(self.common_core_standard, rubric, passage, answers, feedback_do)
+        self.assertEqual(feedback_qc['Outcome'], 'Pass')
+
+        # Confirm the feedback correctly identifies the answers as not meeting the standard
+        for feedback in feedback_do['Feedback']:
+            self.assertFalse(feedback['Grade'] == 'Meets Standard' or feedback['Grade'] == 'Exceeds Standard')
+
+
+    #
+    # These skipped tests were useful during development, but just waste API calls now.
+    # They were used to generate the results files.
+    #
 
     @unittest.skip
     def test_rubric_qc_fail(self):
@@ -73,7 +125,8 @@ class ApiTest(unittest.TestCase):
         feedback_qc = self.api.feedback_qc(self.common_core_standard, 'This is a bad rubric.', 'This is a story about dogs.', 'These are bad answers.', 'This is bad feedback.')
         self.assertEqual(feedback_qc['Outcome'], 'Fail')
 
-    def test_feedback_qc_pass(self):
+    @unittest.skip
+    def test_feedback_qc(self):
         with open('./results/rubric.json', 'r', encoding='utf-8') as file:
             rubric = json.loads(file.read())
         with open('./results/passage.json', 'r', encoding='utf-8') as file:

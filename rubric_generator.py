@@ -1,6 +1,8 @@
 from generator import Generator
 
 class RubricGenerator(Generator):
+    ''' This class generates the rubric for a given common core standard. '''
+    
     def __init__(self):
         super().__init__()
 

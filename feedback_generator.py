@@ -1,6 +1,8 @@
 from generator import Generator
 
 class FeedbackGenerator(Generator):
+    ''' This class generates feedback for a given common core standard, rubric, passage, and answers. '''
+
     def __init__(self):
         super().__init__()
 

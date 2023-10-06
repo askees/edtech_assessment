@@ -5,6 +5,8 @@ from answers_generator import AnswersGenerator
 from feedback_generator import FeedbackGenerator
 
 class Api:
+    ''' This class is the API for the system. It is the only class that should be called from outside the system. '''
+    
     def __init__(self):
         self.rubric_generator = RubricGenerator()
         self.passage_generator = PassageGenerator()

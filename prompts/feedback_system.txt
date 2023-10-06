@@ -3,7 +3,7 @@ Include feedback for how the student could improve their answers.
 
 The output will be in this JSON format:
 {{
-    "Grades": [{{
+    "Feedback": [{{
         "Question": "Question 1",
         "Answer": "Answer to Question 1",
         "Grade": "Grade for Question 1",

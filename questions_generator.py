@@ -1,6 +1,8 @@
 from generator import Generator
 
 class QuestionsGenerator(Generator):
+    ''' This class generates questions for a given common core standard and passage. '''
+
     def __init__(self):
         super().__init__()
 

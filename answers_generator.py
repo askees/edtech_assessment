@@ -1,6 +1,8 @@
 from generator import Generator
 
 class AnswersGenerator(Generator):
+    ''' This class generates answers for a given common core standard, rubric, passage, and questions. It is used for testing. '''
+    
     def __init__(self):
         super().__init__()
 
